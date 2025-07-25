@@ -1,0 +1,142 @@
+/* ===== IMPORTA ARQUIVOS DE ESTILO ===== */
+@import url('reset.css');
+/* Reset de estilos padrão dos navegadores */
+@import url('global.css');
+/* Estilos globais do projeto */
+@import url('components/_navigator.css');
+/* Componente de navegação */
+@import url('components/_pills.css');
+/* Estilos dos elementos "pills" */
+@import url('components/_link-button.css');
+/* Estilos dos botões com links */
+@import url('components/_gallery.css');
+/* Estilos da galeria */
+
+/* ===== CONTAINER PRINCIPAL (layout geral da página) ===== */
+.s-wrapper {
+  display: flex;
+  /* Layout em linha */
+  height: 100vh;
+  /* Ocupa toda a altura da janela */
+  flex-flow: row nowrap;
+  /* Linha única, sem quebra */
+  background-color: aqua;
+  /* Cor de fundo temporária (provavelmente para testes) */
+}
+
+/* ===== VÍDEO DE FUNDO ===== */
+.s-wrapper video {
+  position: fixed;
+  /* Fixa o vídeo no fundo */
+  width: 100%;
+  /* Ocupa toda a largura da tela */
+}
+
+/* ===== COLUNA LATERAL (esquerda) ===== */
+.s-wrapper .s-left-column {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  padding-right: 50px;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  /* Garante que fique acima do vídeo */
+}
+
+/* ===== ÁREA PRINCIPAL (conteúdo) ===== */
+.s-wrapper .s-main-content {
+  height: 100%;
+  width: 100%;
+  padding-left: 130px;
+  /* Espaço para a coluna lateral */
+  position: relative;
+}
+
+/* Parte superior do conteúdo principal */
+.s-wrapper .s-main-content__top {
+  height: 80vh;
+  /* Ocupa 80% da altura */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Alinha o conteúdo ao topo */
+}
+
+/* Parte inferior do conteúdo principal */
+.s-wrapper .s-main-content__bottom {
+  height: 20vh;
+  /* Ocupa os 20% restantes */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* Alinha o conteúdo na parte de baixo */
+}
+
+/* Logo dentro do conteúdo principal */
+.s-wrapper .s-main-content .s-logo img {
+  margin-top: 50px;
+  margin-left: 0;
+  margin-bottom: 30px;
+}
+
+/* Bloco de descrição */
+.s-wrapper .s-main-content__top .s-description {
+  background-color: rgba(0, 0, 0, .7);
+  /* Fundo escuro com transparência */
+  max-width: 50%;
+  /* Largura máxima da descrição */
+  padding: 20px;
+  border-radius: 10px;
+  /* Cantos arredondados */
+}
+
+/* Texto da descrição */
+.s-wrapper .s-main-content__top .s-description .s-description__text p {
+  color: white;
+  line-height: 170%;
+  /* Espaçamento entre linhas */
+}
+
+/* Espaçamento entre os elementos tipo "pill" */
+.s-wrapper .s-main-content__top .s-description .pills {
+  margin-bottom: 20px;
+}
+
+/* Links no conteúdo principal */
+.s-wrapper .s-main-content .s-links {
+  padding: 20px;
+  padding-left: 0;
+  /* Remove o padding lateral esquerdo */
+}
+
+/* Lista de links */
+.s-wrapper .s-main-content .s-links ul {
+  display: flex;
+  flex-direction: row;
+  /* Os itens ficam lado a lado */
+}
+
+/* ===== BACKGROUNDS DOS FILMES DO TOBEY ===== */
+
+/* Fundo do filme 1 */
+.s-spiderman-01-01 {
+  background-image: url('../images/spiderman-tobey/movie-01/background.png');
+  background-size: cover;
+  /* Preenche o elemento sem distorcer */
+}
+
+/* Fundo do filme 2 */
+.s-spiderman-01-02 {
+  background-image: url('../images/spiderman-tobey/movie-02/background.png');
+  background-size: cover;
+}
+
+/* Fundo do filme 3 */
+.s-spiderman-01-03 {
+  background-image: url('../images/spiderman-tobey/movie-03/background.png');
+  background-size: cover;
+}
