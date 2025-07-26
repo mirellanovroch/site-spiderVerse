@@ -1,13 +1,10 @@
-/* Importa os arquivos de reset e estilos globais */
 @import url('/assets/css/reset.css');
 @import url('/assets/css/global.css');
 
-/* Define a cor de fundo principal para o body */
 body {
   background-color: var(--primary-color);
 }
 
-/* Adiciona uma imagem de fundo no body com efeito de transparência */
 body::before {
   content: "";
   background-image: url('/assets/images/spider-man-background.jpg');
@@ -21,7 +18,6 @@ body::before {
   transition: background-image 1s ease-in-out, opacity 1s ease-in-out;
 }
 
-/* Estilização do menu principal */
 .s-menu {
   padding: 1rem 0 1.5rem;
   width: 100%;
@@ -29,26 +25,22 @@ body::before {
   position: relative;
 }
 
-/* Estiliza os itens do menu */
 .s-menu__item {
   display: inline-block;
   text-transform: uppercase;
   margin: 0 1.25rem;
 }
 
-/* Estiliza os links do menu */
 .s-menu__link {
   text-decoration: none;
 }
 
-/* Ícones do menu (como imagens ou SVGs) */
 .s-menu__icon {
   width: 2.5rem;
   margin: 0 1.25rem;
   vertical-align: middle;
 }
 
-/* Container principal que alinha os cards */
 .s-container {
   position: relative;
   display: flex;
@@ -57,16 +49,14 @@ body::before {
   justify-content: space-evenly;
 }
 
-/* Estiliza os cards */
 .s-card {
   border: 0.5rem solid white;
   width: calc(100% / 3 - 8%);
   height: 70vh;
-  position: relative;
-  transition: background-color 1s ease-in-out, filter .5s ease-in-out;
+  position: absolute;
+  transition: background-color 1s ease-in-out, filter .5s ease-in-out, transform .5s ease-in-out;
 }
 
-/* Imagem de fundo do card */
 .s-card__background {
   width: 100%;
   height: 100%;
@@ -76,7 +66,6 @@ body::before {
   transition: opacity 1s ease-in-out;
 }
 
-/* Imagem principal do card (como um personagem) */
 .s-card__image {
   width: 100%;
   height: 100%;
@@ -85,7 +74,6 @@ body::before {
   position: relative;
 }
 
-/* Título do card */
 .s-card__title {
   font-size: 2rem;
   text-transform: uppercase;
@@ -96,16 +84,16 @@ body::before {
   transition: bottom 1s ease-in-out;
 }
 
-/* Container dos botões de controle (como navegação ou seleção) */
 .s-controller {
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 3rem;
+  width: 100%;
+  bottom: 1.5rem;
 }
 
-/* Botões de controle */
 .s-controller__button {
   display: flex;
   align-items: center;
@@ -123,17 +111,14 @@ body::before {
   z-index: 1;
 }
 
-/* Efeito ao passar o mouse nos botões */
 .s-controller__button:hover {
   transform: scale(1.1);
 }
 
-/* Espaçamento entre os botões (o botão do meio) */
 .s-controller__button:nth-child(2) {
   margin: 0 3.75rem;
 }
 
-/* Estilo quando um botão está ativo (selecionado) */
 .s-controller__button--active {
   color: var(--primary-color);
   background-color: white;
@@ -141,7 +126,6 @@ body::before {
   outline: 2px solid white;
 }
 
-/* Linha entre os botões de controle */
 .s-controller__line {
   background-color: white;
   width: 50%;
@@ -149,64 +133,63 @@ body::before {
   position: absolute;
 }
 
-/* Adiciona símbolos < e > antes e depois da linha */
-.s-controller__line::before {
-  content: "<";
-  left: -2rem;
-}
-
-.s-controller__line::after {
-  content: ">";
-  right: -2rem;
-}
-
-/* Estiliza os símbolos da linha de controle */
 .s-controller__line::before, .s-controller__line::after {
   font-size: 2.5rem;
   position: absolute;
   bottom: -1.8rem;
 }
 
-/* ANIMAÇÕES DE HOVER NOS CARDS */
+/* Card hover animation */
 
-/* Ao passar o mouse em um card: oculta o fundo */
 .s-card--hovered .s-card__background {
   cursor: pointer;
   opacity: 0;
 }
 
-/* Aumenta e aplica sombra na imagem do card */
 .s-card--hovered .s-card__image {
   transform: scale(1.4);
   filter: drop-shadow(30px 10px 4px rgba(0, 0, 0, .5));
 }
 
-/* Move o título para o centro verticalmente */
 .s-card--hovered .s-card__title {
   bottom: 50%;
 }
 
-/* Muda o background do body quando o card 01 está em hover */
 body#spider-man-01-hovered::before {
   background-image: url('/assets/images/pic-sm-bg-01.jpg');
 }
 
-/* Muda o background do body quando o card 02 está em hover */
 body#spider-man-02-hovered::before {
   background-image: url('/assets/images/pic-sm-bg-02.jpg');
 }
 
-/* Muda o background do body quando o card 03 está em hover */
 body#spider-man-03-hovered::before {
   background-image: url('/assets/images/pic-sm-bg-03.jpg');
 }
 
-/* Garante que a opacidade da imagem de fundo seja total durante hover */
 body[id^="spider-man-"]::before {
   opacity: 1;
 }
 
-/* Aplica escala de cinza nos outros cards que não estão em hover */
 body[id^="spider-man-"] .s-card:not(.s-card--hovered) {
   filter: grayscale(100%);
+}
+
+/* Cards Carousel */
+
+.s-container {
+  perspective: 3000px;
+}
+
+.s-cards-carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: calc(100vw / 3 - 10%);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease-in;
+}
+
+.s-card {
+  width: 100%;
 }

@@ -67,3 +67,18 @@ function selectCarouselItem(selectedButtonElement) {
   // Adiciona a classe "ativo" ao botão que foi clicado
   selectedButtonElement.classList.add('s-controller__button--active');
 }
+
+function selectCarouselItem(selectedButtonElement){
+  const carousel = document.querySelector('.s-cards-carousel');
+  const selectedItem = selectedButtonElement.id;
+  const transform = carousel.computedStyleMap.transform;
+  const rotateY = transform.match(/rotateY\((-?\d+deg)\)/i);
+  const rotateYDeg = -120 * (Number(selectedItem) -1 );
+  const newTransform = transform.replace(rotateY[0], `rotateY(${rotateYDeg}deg)`);
+
+  carousel.style.transform = newTransform;
+
+  const activeButtonElement = document.querySelector('.s-controller__button--active');
+  activeButtonElement.classList.remove('.s-controller__button--active');
+  selectedButtonElement.classList.add('.s-controller__button--active');
+}

@@ -35,3 +35,5 @@ function addEventListenersToCards() {
 
 // Quando o conteúdo da página for carregado, adiciona os eventos aos cards
 document.addEventListener("DOMContentLoaded", addEventListenersToCards, false);
+
+

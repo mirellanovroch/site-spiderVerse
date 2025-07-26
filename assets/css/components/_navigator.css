@@ -1,57 +1,67 @@
+/* Estiliza o contêiner principal do navegador lateral */
 .navigator {
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  position: relative;
+  height: 80vh; /* Altura de 80% da altura da janela de visualização */
+  display: flex; /* Ativa o Flexbox */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  align-items: center; /* Centraliza os itens verticalmente */
+  width: 100%; /* Ocupa toda a largura disponível */
+  position: relative; /* Permite posicionamento absoluto dos filhos */
 }
 
+/* Define o espaçamento vertical entre os itens da lista */
 .navigator ul li {
-  margin: 60px 0;
+  margin: 60px 0; /* Espaçamento acima e abaixo de cada item */
 }
 
+/* Remove a margem superior do primeiro item */
 .navigator ul li:first-child {
   margin-top: 0;
 }
 
+/* Remove a margem inferior do último item */
 .navigator ul li:last-child {
   margin-bottom: 0;
 }
 
-.navigator ul li a{
-  color: white;
-  border: solid 2px white;
-  width:45px;
-  height:45px;
-  border-radius: 50%;
-  background-color: black;
+/* Estiliza os links dentro da lista (os círculos clicáveis) */
+.navigator ul li a {
+  color: white; /* Cor do ícone/texto */
+  border: solid 2px white; /* Borda branca */
+  width: 45px;
+  height: 45px;
+  border-radius: 50%; /* Deixa o link redondo */
+  background-color: black; /* Fundo preto */
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Centraliza o conteúdo dentro do círculo */
 }
 
+/* Cria uma linha vertical ao fundo do navegador (como um eixo) */
 .navigator::before {
-  content: '';
+  content: ''; /* Pseudo-elemento vazio */
   position: absolute;
   top: 0;
   width: 2px;
   height: 100%;
-  background-color: white;
-  z-index: 0;
+  background-color: white; /* Linha branca */
+  z-index: 0; /* Fica atrás dos itens */
 }
 
-.navigator ul{
+/* Garante que a lista de navegação fique acima da linha de fundo */
+.navigator ul {
   z-index: 1;
 }
 
-.navigator ul li a:hover, 
+/* Aplica estilos ao passar o mouse ou quando o item está ativo */
+.navigator ul li a:hover,
 .navigator ul li a.active {
-  color: var(--primary-color);
-  background-color: white;
+  color: var(--primary-color); /* Muda a cor do ícone/texto */
+  background-color: white; /* Fundo branco */
 }
 
-.navigator .navigator__icon{
+/* Posiciona um ícone específico acima da navegação, fora do fluxo normal */
+.navigator .navigator__icon {
   position: absolute;
-  top: -20px;
+  top: -20px; /* Empurra para cima 20px em relação ao navegador */
 }
+
